@@ -75,23 +75,35 @@ function task_1() {
                         };
 
                     };*/
-                // как запустить, если метод описан в конструкторе?
+                // 
+    var vehicleCollect = function () {};
+    vehicleCollect.prototype.addBrend = function (brend) {
+        this.addBrend = brend;
+        return this;
+    };
+    vehicleCollect.prototype.addSpeed = function (speed) {
+        this.addSpeed = speed;
+        return this;
+    };
 
+    var test = new vehicleCollect();
+    test.addBrend('Mazda').addSpeed('160');
+    console.log(test);
 //3
-    var vehicleCollection ={
+    var vehicleCollection = {
 //3.1
         objects: [],
 //3.2
         addTo: function (obj) {
             this.objects.push(obj);
+            return this;
         },
 //3.3
         getObj: function () {
             return this.objects;
         }
     };
-    vehicleCollection.addTo(car1);
-    vehicleCollection.addTo(car2);
+    vehicleCollection.addTo(car1).addTo(car2);
     console.log(vehicleCollection.getObj());
 //4
     var bike = new vehicle('', 'Harley Davidson', 130, 300, 1987);
